@@ -1,0 +1,873 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Generaci&oacute;n Autom&aacute;tica de Ontolog&iacute;as - Presentaci&oacute;n de Tesis de Licenciatura</title>
+
+		<link rel="stylesheet" href="reveal/reset.css">
+		<link rel="stylesheet" href="reveal/reveal.css">
+		<link rel="stylesheet" href="reveal/black.css" id="theme">
+
+	<style>
+		.reveal{
+			font-family: 'Times New Roman', Times, serif;
+		}
+		.reveal h1,
+		.reveal h2,
+		.reveal h3,
+		.reveal h4,
+		.reveal h5,
+		.reveal h6{
+			font-family: "Palatino Linotype", "Book Antiqua", Palatino, FreeSerif, serif;
+		}
+		.filename{
+			color: lightcoral;
+		}
+		table thead th,
+		table tbody td{
+			text-align: center!important;
+			vertical-align: middle!important;
+		}
+		table{
+			border: 3px white solid;
+		}
+		.text_example{
+			text-align: left;
+			border: 1px white solid;
+			padding: 10px;
+			font-family: monospace;
+			font-size: x-large;
+		}
+	</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<p style="margin: 0;">
+							<small>
+								Universidad de La Habana<br>
+								Facultad de Matem&aacute;tica y Computaci&oacute;n
+							</small>
+						</p>
+						<img src="images/university_logo.png" height="150" style="margin-top: 5px;" alt="Havana University logo">
+						<h3>Generaci&oacute;n Autom&aacute;tica de Ontolog&iacute;as</h3>
+						<p style="position: absolute; top: 100%; width: 100%;">
+							<small>
+								Autor: Jos&eacute; Ariel Romero Costa<br>
+								Tutor: MSc. Juan Pablo Consuegra Ayala<br><br>
+								Presentado en opci&oacute;n al t&iacute;tulo de<br>Licenciado en Ciencia de la Computaci&oacute;n
+							</small>
+						</p>
+					</section>
+					<section>
+						<h3>Introducci&oacute;n</h3>
+					</section>
+					<section>
+						<h4>&iquest;Qu&eacute; es el conocimiento?</h4>
+						<p class="fragment" data-fragment-index="0">
+							Hechos o informaci&oacute;n adquiridos por una persona a trav&eacute;s de:
+							<ul>
+								<li class="fragment" data-fragment-index="1">la experiencia</li>
+								<li class="fragment" data-fragment-index="2">
+									<span class="fragment highlight-blue" data-fragment-index="5">la educaci&oacute;n</span>
+								</li>
+								<li class="fragment" data-fragment-index="3">
+									<span class="fragment highlight-blue" data-fragment-index="5">la comprensi&oacute;n te&oacute;rica</span>
+								</li>
+								<li class="fragment" data-fragment-index="4">la comprensi&oacute;n pr&aacute;ctica</li>
+							</ul>
+						</p>
+						<img src="images/fox_thinking.png" alt="Fox thinking">
+					</section>
+					<section>
+						<h4>Conocimiento por medio de la lectura</h4>
+						<p>
+							<ul class="fragment">
+								<li>Libros</li>
+								<li>Art&iacute;culos</li>
+								<li>Reportes</li>
+								<li>Noticias</li>
+							</ul>
+						</p>
+						<img src="images/fox_reading.png" alt="Fox reading">
+					</section>
+					<section>
+						<h4>Se&ntilde;ales de agotamiento mental</h4>
+						<p>
+							<ul class="fragment" data-fragment-index="0">
+								<li>Desmotivaci&oacute;n</li>
+								<li>Problemas para conciliar el sue&ntilde;o</li>
+								<li>Fatiga y cansancio general</li>
+								<li>Mareos y dolores de cabeza</li>
+								<li>Irritabilidad</li>
+							</ul>
+						</p>
+						<img src="images/fox_tired.png" class="fragment" data-fragment-index="0" alt="Fox tired">
+					</section>
+					<section>
+						<h4>&iquest;Qu&eacute; tal si alguien aprendiera por m&iacute; y me ayuda?</h4>
+						<p>
+							<ul>
+								<li class="fragment" data-fragment-index="0">Amigo</li>
+								<li class="fragment" data-fragment-index="1">Equipo de c&oacute;mputo</li>
+							</ul>
+						</p>
+						<div class="r-hstack">
+							<div style="width: 48%;">
+								<img src="images/fox_with_friend.png" class="fragment" data-fragment-index="0" alt="Fox with friend">
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<img src="images/fox_with_laptop.png" class="fragment" data-fragment-index="1" alt="Fox with laptop">
+							</div>
+						</div>
+					</section>
+					<section>
+						<h4>&iquest;C&oacute;mo representar el conocimiento en un equipo de c&oacute;mputo?</h4>
+						<p>
+							<span class="fragment" data-fragment-index="0">Ontolog&iacute;as:</span><br>
+							<ul>
+								<li class="fragment" data-fragment-index="1">conceptos</li>
+								<li class="fragment" data-fragment-index="2">relaciones</li>
+							</ul>
+						</p>
+						<div class="r-stack">
+							<img src="images/fox_confused.png" class="fragment fade-out" data-fragment-index="0" alt="Fox confused">
+							<img src="images/fox_with_idea.png" class="fragment fade-in" data-fragment-index="0" alt="Fox with idea">
+						</div>
+					</section>
+					<section>
+						<h4>&iquest;Para qu&eacute; sirven las ontolog&iacute;as?</h4>
+						<div class="r-stack">
+							<p>
+								<ul class="fragment fade-in" data-fragment-index="0">
+									<li>Crean entendimiento compartido</li>
+									<li class="fragment" data-fragment-index="1">Permiten el reuso del conocimiento</li>
+									<li class="fragment" data-fragment-index="2">Facilitan la recuperaci&oacute;n, integraci&oacute;n e interoperatividad entre fuentes de conocimiento heterog&eacute;neas</li>
+									<li class="fragment" data-fragment-index="3">Posibilitan el descubrimiento impl&iacute;cito de conocimiento</li>
+								</ul>
+							</p>
+							<img src="images/fox_shrugging.png" class="fragment fade-out" data-fragment-index="0" alt="Fox shrugging">
+						</div>
+					</section>
+					<section>
+						<h4>Problem&aacute;tica</h4>
+						<p class="fragment">
+							<em>Representar un corpus de documentos anotados como base de conocimiento, por medio de una ontolog&iacute;a.</em>
+						</p>
+						<img src="images/fox_with_board.png" alt="Fox with board">
+					</section>
+					<section>
+						<h4>Objetivo general:</h4>
+						<ul>
+							<li class="fragment">Definir un dise&ntilde;o de ontolog&iacute;a de prop&oacute;sito general que sea capaz de representar el conocimiento descrito en uno o m&aacute;s corpus anotados.</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Objetivos espec&iacute;ficos:</h4>
+						<ul>
+							<li class="fragment">Estudiar los esquemas de anotaci&oacute;n y corpus.</li>
+							<li class="fragment">Definir un esquema conceptual de anotaci&oacute;n.</li>
+							<li class="fragment">Definir un formato de anotaci&oacute;n de archivos para el esquema conceptual.</li>
+							<li class="fragment">Dise&ntilde;ar una propuesta de ontolog&iacute;a donde se pueda representar un corpus de documentos escritos en lenguaje natural.</li>
+							<li class="fragment">Implementar un algoritmo computacional para representar un corpus anotado como grafo de conocimiento.</li>
+							<li class="fragment">Implementar un marco experimental.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Modelo de Anotaci&oacute;n</h3>
+					</section>
+					<section>
+						<h4>Esquema de Anotaci&oacute;n</h4>
+						<div class="r-stack">
+							<img src="images/annotation_model_1.png" class="fragment fade-out" data-fragment-index="0" style="height: 600px" alt="Annotation Model Image 1">
+							<img src="images/annotation_model_2.png" class="fragment fade-in-then-out" data-fragment-index="0" style="height: 600px" alt="Annotation Model Image 2">
+							<img src="images/annotation_model_3.png" class="fragment fade-in-then-out" data-fragment-index="1" style="height: 600px" alt="Annotation Model Image 3">
+							<img src="images/annotation_model_4.png" class="fragment fade-in-then-out" data-fragment-index="2" style="height: 600px" alt="Annotation Model Image 4">
+							<img src="images/annotation_model_5.png" class="fragment fade-in-then-out" data-fragment-index="3" style="height: 600px" alt="Annotation Model Image 5">
+							<img src="images/annotation_model_6.png" class="fragment fade-in-then-out" data-fragment-index="4" style="height: 600px" alt="Annotation Model Image 6">
+							<img src="images/annotation_model_7.png" class="fragment fade-in-then-out" data-fragment-index="5" style="height: 600px" alt="Annotation Model Image 7">
+							<img src="images/annotation_model_8.png" class="fragment fade-in-then-out" data-fragment-index="6" style="height: 600px" alt="Annotation Model Image 8">
+							<img src="images/annotation_model_9.png" class="fragment fade-in-then-out" data-fragment-index="7" style="height: 600px" alt="Annotation Model Image 9">
+							<img src="images/annotation_model_10.png" class="fragment fade-in-then-out" data-fragment-index="8" style="height: 600px" alt="Annotation Model Image 10">
+							<img src="images/annotation_model_11.png" class="fragment fade-in-then-out" data-fragment-index="9" style="height: 600px" alt="Annotation Model Image 11">
+							<img src="images/annotation_model_12.png" class="fragment fade-in-then-out" data-fragment-index="10" style="height: 600px" alt="Annotation Model Image 12">
+							<img src="images/annotation_model_13.png" class="fragment fade-in-then-out" data-fragment-index="11" style="height: 600px" alt="Annotation Model Image 13">
+							<img src="images/annotation_model_14.png" class="fragment fade-in-then-out" data-fragment-index="12" style="height: 600px" alt="Annotation Model Image 14">
+							<img src="images/annotation_model_15.png" class="fragment" data-fragment-index="13" style="height: 600px" alt="Annotation Model Image 15">
+						</div>
+					</section>
+					<section>
+						<h4>Anotaci&oacute;n autom&aacute;tica de documentos</h4>
+						<p>
+							<em class="fragment">eHealth-KD Challenge: IberLEF 2019, IberLEF 2020</em>
+							<ul>
+								<li class="fragment">Anotaci&oacute;n de textos m&eacute;dicos del idioma espa&ntilde;ol</li>
+								<li class="fragment">Basada en el mismo modelo de anotaci&oacute;n</li>
+							</ul>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Propuesta de Soluci&oacute;n</h3>
+					</section>
+					<section>
+						<h4>Modelo Ontol&oacute;gico</h4>
+						<p>Ontolog&iacute;a <em>O = </em>(<em>C, R, A, Top</em>)</p>
+						<ul>
+							<li class="fragment"><span><em>C</em>: conceptos</span></li>
+							<li class="fragment"><span><em>R</em>: relaciones</span></li>
+							<li class="fragment"><span><em>A</em>: axiomas</span></li>
+							<li class="fragment"><span><em>Top</em>: concepto con m&aacute;s alto nivel en la jerarqu&iacute;a</span></li>
+						</ul>
+					</section>
+					<section>
+						<h4>Clases en la ontolog&iacute;a</h4>
+						<ul>
+							<li class="fragment">Entidad simple</li>
+							<li class="fragment">Entidad con atributo</li>
+							<li class="fragment">Entidad compuesta</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Relaciones en la ontolog&iacute;a</h4>
+						<div class="r-hstack">
+							<div style="width: 48%; float: left;">
+								<p class="fragment" data-fragment-index="0">Sem&aacute;ntica:</p>
+								<ul>
+									<li class="fragment" data-fragment-index="1"><span>subject</span></li>
+									<li class="fragment" data-fragment-index="1">target</li>
+									<li class="fragment" data-fragment-index="2">domain</li>
+									<li class="fragment" data-fragment-index="2">argument</li>
+									<li class="fragment" data-fragment-index="3">in-time</li>
+									<li class="fragment" data-fragment-index="3">in-place</li>
+									<li class="fragment" data-fragment-index="3">in-context</li>
+								</ul>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%; float: left;">
+								<p class="fragment" data-fragment-index="0">Permiten descubrir conocimiento:</p>
+								<ul>
+									<li class="fragment" data-fragment-index="4">is-a</li>
+									<li class="fragment" data-fragment-index="4">part-of</li>
+									<li class="fragment" data-fragment-index="4">same-as</li>
+									<li class="fragment" data-fragment-index="4">has-property</li>
+									<li class="fragment" data-fragment-index="5">causes</li>
+									<li class="fragment" data-fragment-index="5">entails</li>
+									<br>
+								</ul>
+							</div>
+						</div>
+					</section>
+					<section>
+						<h4>Orden Topol&oacute;gico</h4>
+						<ol>
+							<li class="fragment">
+								<p>
+									<span>Texto</span><br>
+									<small>
+										<span class="fragment">&#187; Protagonistas: conceptos del corpus anotado.</span><br>
+										<span class="fragment">&#187; Resultado: instancias de entidad simple.</span>
+									</small>
+								</p>
+							</li>
+							<li class="fragment">
+								<p>
+									<span>Atributos</span><br>
+									<small>
+										<span class="fragment">&#187; Protagonistas: conceptos que son modificados por atributos.</span><br>
+										<span class="fragment">&#187; Resultado: instancias de entidad con atributo.</span>
+									</small>
+								</p>
+							</li>
+							<li class="fragment">
+								<p>
+									<span>Relaciones de acci&oacute;n, predicado y contextualizaci&oacute;n</span><br>
+									<small>
+										<span class="fragment">&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.</span><br>
+										<span class="fragment">&#187; Resultado: instancias de entidad compuesta.</span>
+									</small>
+								</p>
+							</li>
+							<li class="fragment">
+								<p>
+									<span>Relaciones taxon&oacute;micas y de causa e implicaci&oacute;n</span><br>
+									<small>
+										<span class="fragment">&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.</span>
+									</small>
+								</p>
+							</li>
+						</ol>
+					</section>
+					<section>
+						<h4>Ejemplo</h4>
+							<em>
+								&ldquo;Las <span class="fragment highlight-blue" data-fragment-index="0">buenas</span> <span class="fragment highlight-blue" data-fragment-index="0">pr&aacute;cticas</span> de <span class="fragment highlight-blue" data-fragment-index="0">higiene</span>, incluyendo <span class="fragment highlight-blue" data-fragment-index="0">lavarse</span> las <span class="fragment highlight-blue" data-fragment-index="0">manos</span> <span class="fragment highlight-blue" data-fragment-index="0">correctamente</span>, pueden <span class="fragment highlight-blue" data-fragment-index="0">evitar</span> <span class="fragment highlight-blue" data-fragment-index="0">infecciones</span>.&rdquo;
+							</em>
+						<div class="r-hstack">
+							<div style="width: 48%;">
+								<p class="fragment text_example" style="display: inline-block; margin-bottom: 0px;" data-fragment-index="0">
+									# Keyphrases<br>
+									T1 Concept 4 10 buenas<br>
+									T2 Predicate 11 20 pr&aacute;cticas<br>
+									T3 Concept 24 31 higiene<br>
+									T4 Action 44 51 lavarse<br>
+									T5 Concept 56 61 manos<br>
+									T6 Concept 62 75 correctamente<br>
+									T7 Action 84 90 evitar<br>
+									T8 Concept 91 102 infecciones
+								</p>
+								<p class="text_example" style="margin-top: 0; padding: 0;border: none;"><br><br></p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="fragment text_example" style="display: inline-block;">
+									# Relations<br>
+									R1 in-context Arg1:T2 Arg2:T1<br>
+									R2 domain Arg1:T2 Arg2:T3<br>
+									R3 causes Arg1:T2 Arg2:T7<br>
+									R4 is-a Arg1:T4 Arg2:T2<br>
+									R5 target Arg1:T4 Arg2:T5<br>
+									R6 in-context Arg1:T4 Arg2:T6<br>
+									R7 target Arg1:T7 Arg2:T8<br><br>
+									# Attributes<br>
+									A1 Uncertain T7
+								</p>
+							</div>
+						</div>
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								1. Texto<br>
+								&#187; Protagonistas: conceptos del corpus anotado.<br>
+								&#187; Resultado: instancias de entidad simple.
+							</small>
+						</p><br>
+						<p class="fragment text_example" style="display: inline-block;">
+							T1 Concept 4 10 buenas<br>
+							T2 Predicate 11 20 pr&aacute;cticas<br>
+							T3 Concept 24 31 higiene<br>
+							T4 Action 44 51 lavarse<br>
+							T5 Concept 56 61 manos<br>
+							T6 Concept 62 75 correctamente<br>
+							T7 Action 84 90 evitar<br>
+							T8 Concept 91 102 infecciones
+						</p><br>
+						<img src="images/knowledge_graph_1.png" class="fragment" alt="Knowledge Graph 1">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								2. Atributos<br>
+								&#187; Protagonistas: conceptos que son modificados por atributos.<br>
+								&#187; Resultado: instancias de entidad con atributo.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									A1 Uncertain T7
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T7 Action 84 90 evitar
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_2.png" class="fragment" alt="Knowledge Graph 2">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								3. Relaciones de acci&oacute;n, predicado y contextualizaci&oacute;n<br>
+								&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.<br>
+								&#187; Resultado: instancias de entidad compuesta.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									R1 in-context Arg1:T2 Arg2:T1<br>
+									R2 domain Arg1:T2 Arg2:T3
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T1 Concept 4 10 buenas<br>
+									T2 Predicate 11 20 pr&aacute;cticas<br>
+									T3 Concept 24 31 higiene
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_3.png" class="fragment" alt="Knowledge Graph 3">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								3. Relaciones de acci&oacute;n, predicado y contextualizaci&oacute;n<br>
+								&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.<br>
+								&#187; Resultado: instancias de entidad compuesta.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									R5 target Arg1:T4 Arg2:T5<br>
+									R6 in-context Arg1:T4 Arg2:T6
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T4 Action 44 51 lavarse<br>
+									T5 Concept 56 61 manos<br>
+									T6 Concept 62 75 correctamente
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_4.png" class="fragment" alt="Knowledge Graph 4">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								3. Relaciones de acci&oacute;n, predicado y contextualizaci&oacute;n<br>
+								&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.<br>
+								&#187; Resultado: instancias de entidad compuesta.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									R7 target Arg1:T7 Arg2:T8
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T7 Action 84 90 evitar<br>
+									T8 Concept 91 102 infecciones
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_5.png" class="fragment" alt="Knowledge Graph 5">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								4. Relaciones taxon&oacute;micas y de causa e implicaci&oacute;n<br>
+									&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									R3 causes Arg1:T2 Arg2:T7
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T2 Predicate 11 20 pr&aacute;cticas<br>
+									T7 Action 84 90 evitar
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_6.png" class="fragment" alt="Knowledge Graph 6">
+					</section>
+					<section>
+						<p style="border: 1px white solid; padding: 10px; display: inline-block;">
+							<small>
+								4. Relaciones taxon&oacute;micas y de causa e implicaci&oacute;n<br>
+									&#187; Protagonistas: entidades correspondientes a los conceptos implicados en estas relaciones.
+							</small>
+						</p>
+						<div class="fragment r-hstack">
+							<div style="width: 48%;">
+								<p class="text_example" style="float: right;">
+									R4 is-a Arg1:T4 Arg2:T2
+								</p>
+							</div>
+							<div style="width: 4%;"></div>
+							<div style="width: 48%;">
+								<p class="text_example" style="float: left;">
+									T2 Predicate 11 20 pr&aacute;cticas<br>
+									T4 Action 44 51 lavarse
+								</p>
+							</div>
+						</div>
+						<img src="images/knowledge_graph_7.png" class="fragment" height="400" alt="Knowledge Graph 7">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Resultados</h3>
+					</section>
+					<section>
+						<h4>Descubrimiento impl&iacute;cito de conocimiento</h4>
+						<ul>
+							<li class="fragment">
+								<span>Documento <span class="filename">cirug&iacute;a.ann</span>:</span><br>
+								<span>&#171;cirug&iacute;a de coraz&oacute;n <em style="color: cornflowerblue;">is-a</em> operaci&oacute;n&#187;</span>
+							</li>
+							<li class="fragment">
+								<span>Documento <span class="filename">h&iacute;gado graso.ann</span></span>:<br>
+								<span>&#171;operaci&oacute;n <em style="color: cornflowerblue;">is-a</em> procedimiento m&eacute;dico&#187;</span>
+							</li>
+							<br>
+							<li class="fragment">
+								<span>Descubrimiento:</span><br>
+								<span>&#171;cirug&iacute;a de coraz&oacute;n <em style="color: cornflowerblue;">is-a</em> procedimiento m&eacute;dico&#187;</span>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h4>Resultados de la evaluaci&oacute;n basada en datos</h4>
+						<div class="r-stack">
+							<small class="fragment fade-out" data-fragment-index="2">
+								<table>
+									<thead>
+										<th>% de divisi&oacute;n</th>
+										<th>70</th>
+										<th>75</th>
+										<th>80</th>
+										<th>85</th>
+										<th>90</th>
+										<th>95</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>oraciones</td>
+											<td>959</td>
+											<td>959</td>
+											<td>959</td>
+											<td>959</td>
+											<td>959</td>
+											<td>959</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="0">
+											<td>oraciones de entrenamiento</td>
+											<td>671</td>
+											<td>719</td>
+											<td>767</td>
+											<td>815</td>
+											<td>863</td>
+											<td>911</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="1">
+											<td>oraciones de verificaci&oacute;n</td>
+											<td>288</td>
+											<td>240</td>
+											<td>192</td>
+											<td>144</td>
+											<td>96</td>
+											<td>48</td>
+										</tr>
+									</tbody>
+								</table>
+							</small>
+							<div class="fragment fade-out" data-fragment-index="8">
+								<small class="fragment fade-in" data-fragment-index="2">
+									<table>
+										<thead>
+											<th>% de divisi&oacute;n</th>
+											<th>70</th>
+											<th>75</th>
+											<th>80</th>
+											<th>85</th>
+											<th>90</th>
+											<th>95</th>
+										</thead>
+										<tbody>
+											<tr>
+												<td>entidades en el corpus</td>
+												<td>3,725</td>
+												<td>3,938</td>
+												<td>4,135</td>
+												<td>4,345</td>
+												<td>4,544</td>
+												<td>4,739</td>
+											</tr>
+											<tr class="fragment fade-in" data-fragment-index="3">
+												<td>entidades de verificaci&oacute;n</td>
+												<td>1,888</td>
+												<td>1,621</td>
+												<td>1,353</td>
+												<td>1,058</td>
+												<td>746</td>
+												<td>405</td>
+											</tr>
+											<tr class="fragment fade-in" data-fragment-index="4">
+												<td>coincidencia de entidades</td>
+												<td>678</td>
+												<td>623</td>
+												<td>554</td>
+												<td>468</td>
+												<td>355</td>
+												<td>209</td>
+											</tr>
+											<tr class="fragment fade-in" data-fragment-index="5">
+												<td>% de coincidencia de entidades</td>
+												<td>35.91</td>
+												<td>38.43</td>
+												<td>40.95</td>
+												<td>44.23</td>
+												<td>47.59</td>
+												<td>51.6</td>
+											</tr>
+											<tr class="fragment fade-in" data-fragment-index="6">
+												<td>nuevas entidades</td>
+												<td>1,210</td>
+												<td>998</td>
+												<td>799</td>
+												<td>590</td>
+												<td>391</td>
+												<td>196</td>
+											</tr>
+											<tr class="fragment fade-in" data-fragment-index="7">
+												<td>% de nuevas entidades</td>
+												<td>64.09</td>
+												<td>61.57</td>
+												<td>59.05</td>
+												<td>55.77</td>
+												<td>52.41</td>
+												<td>48.4</td>
+											</tr>
+										</tbody>
+									</table>
+								</small>
+							</div>
+							<small class="fragment fade-in" data-fragment-index="8">
+								<table>
+									<thead>
+										<th>% de divisi&oacute;n</th>
+										<th>70</th>
+										<th>75</th>
+										<th>80</th>
+										<th>85</th>
+										<th>90</th>
+										<th>95</th>
+									</thead>
+									<tbody>
+										<tr>
+											<td>relaciones en el corpus</td>
+											<td>6,139</td>
+											<td>6,560</td>
+											<td>6,965</td>
+											<td>7,390</td>
+											<td>7,802</td>
+											<td>8,213</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="9">
+											<td>relaciones de verificaci&oacute;n</td>
+											<td>2,728</td>
+											<td>2,283</td>
+											<td>1,845</td>
+											<td>1,390</td>
+											<td>932</td>
+											<td>469</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="10">
+											<td>coincidencia de relaciones</td>
+											<td>244</td>
+											<td>220</td>
+											<td>187</td>
+											<td>156</td>
+											<td>111</td>
+											<td>59</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="11">
+											<td>% de coincidencia de relaciones</td>
+											<td>8.94</td>
+											<td>9.64</td>
+											<td>10.14</td>
+											<td>11.22</td>
+											<td>11.91</td>
+											<td>12.58</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="12">
+											<td>nuevas relaciones por nuevas entidades</td>
+											<td>2,416</td>
+											<td>2,003</td>
+											<td>1,609</td>
+											<td>1,195</td>
+											<td>795</td>
+											<td>397</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="13">
+											<td>% de nuevas relaciones por nuevas entidades</td>
+											<td>88.56</td>
+											<td>87.74</td>
+											<td>87.21</td>
+											<td>85.97</td>
+											<td>85.3</td>
+											<td>84.65</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="14">
+											<td>nuevas relaciones en entidades existentes</td>
+											<td>68</td>
+											<td>60</td>
+											<td>49</td>
+											<td>39</td>
+											<td>26</td>
+											<td>13</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="15">
+											<td>% de nuevas relaciones en entidades existentes</td>
+											<td>2.5</td>
+											<td>2.62</td>
+											<td>2.65</td>
+											<td>2.81</td>
+											<td>2.79</td>
+											<td>2.77</td>
+										</tr>
+										<tr class="fragment fade-in" data-fragment-index="16">
+											<td>% de coincidencia de relaciones v&aacute;lidas</td>
+											<td>78.21</td>
+											<td>78.57</td>
+											<td>79.24</td>
+											<td>80</td>
+											<td>81.02</td>
+											<td>81.94</td>
+										</tr>
+									</tbody>
+								</table>
+							</small>
+						</div>
+					</section>
+					<section>
+						<h4>Palabras con m&aacute;s relaciones en la base de conocimiento</h4>
+						<div style="width: 48%; float: left;" class="fragment">
+							<span><em>Concept</em>:</span><br>
+							<small>
+								<ul>
+									<li>tratamiento</li>
+									<li>persona</li>
+									<li>cuerpo</li>
+									<li>problema</li>
+									<li>m&eacute;dico</li>
+									<li>sangre</li>
+									<li>s&iacute;ntoma</li>
+									<li>ni&ntilde;o</li>
+								</ul>
+							</small>
+						</div>
+						<div style="width: 4%;"></div>
+						<div style="width: 48%; float: left;" class="fragment">
+							<span><em>Action</em>:</span><br>
+							<small>
+								<ul>
+									<li>tener</li>
+									<li>usar</li>
+									<li>dolor</li>
+									<li>riesgo</li>
+									<li>utilizar</li>
+									<li>ayudar</li>
+									<li>causar</li>
+									<li>da&ntilde;ar</li>
+								</ul>
+							</small>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Conclusiones</h3>
+					</section>
+					<section>
+						<h4>Contribuciones fundamentales de la investigaci&oacute;n:</h4>
+						<ol>
+							<li class="fragment">La definici&oacute;n de un modelo de anotaci&oacute;n de prop&oacute;sito general.</li>
+							<li class="fragment">La definici&oacute;n de un formato de escritura de archivos para el modelo de anotaci&oacute;n.</li>
+							<li class="fragment">El dise&ntilde;o de una propuesta de ontolog&iacute;a para representar el conocimiento de un corpus de documentos escritos en lenguaje natural.</li>
+							<li class="fragment">La implementaci&oacute;n de un algoritmo computacional para representar un corpus anotado como grafo de conocimiento.</li>
+						</ol>
+					</section>
+					<section>
+						<h4>Otros aspectos relevantes:</h4>
+						<ol>
+							<li class="fragment">El desarrollo de una base de conocimiento de dominio m&eacute;dico.</li>
+							<li class="fragment">El descubrimiento de conocimiento impl&iacute;cito en la base de conocimiento creada.</li>
+							<li class="fragment">La ventaja del equipo de c&oacute;mputo sobre el humano.</li>
+							<li class="fragment">El corpus sienta las bases para el desarrollo de nuevos sistemas y la continuaci&oacute;n de la investigaci&oacute;n.</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Recomendaciones</h3>
+					</section>
+					<section>
+						<ul>
+							<li>Anotar corpus de otros dominios y construir su respectiva base de conocimiento.</li>
+							<li class="fragment">Comprobar la efectividad con otras m&eacute;tricas.</li>
+							<li class="fragment">Resolver las correferencias.</li>
+							<li class="fragment">Crear una aplicaci&oacute;n para computadoras, m&oacute;viles y/o p&aacute;ginas web.</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Repositorio</h3>
+					</section>
+					<section>
+						<span>Todos los recursos de la tesis pueden encontrarse en:</span><br>
+						<small>
+							<a href="https://github.com/jromero132/bachelor_thesis/">https://github.com/jromero132/bachelor_thesis/</a>
+						</small>
+						<br><br>
+						<span class="fragment">Cada uno de los recursos usados se encuentran en:</span><br>
+						<ul>
+							<li class="fragment">
+								<span>Documento de tesis:</span><br>
+								<small>
+									<a href="https://github.com/jromero132/bachelor_thesis_paper/">https://github.com/jromero132/bachelor_thesis_paper/</a>
+								</small>
+							</li>
+							<li class="fragment">
+								<span>Presentaci&oacute;n:</span><br>
+								<small>
+									<a href="https://github.com/jromero132/bachelor_thesis_presentation/">https://github.com/jromero132/bachelor_thesis_presentation/</a>
+								</small>
+							</li>
+							<li class="fragment">
+								<span>Implementaci&oacute;n:</span><br>
+								<small>
+									<a href="https://github.com/jromero132/bachelor_thesis_code/">https://github.com/jromero132/bachelor_thesis_code/</a>
+								</small>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<img src="images/fox_happy.png" alt="Fox happy">
+					<h2>&iexcl;Muchas Gracias!</h2>
+					<img src="images/fox_graduated.png" alt="Fox graduated">
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal/reveal.js"></script>
+		<!-- <script src="plugin/notes/notes.js"></script> -->
+		<script>
+			Reveal.initialize({
+				slideNumber: "c/t",
+				hash: true,
+				showNotes: false,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transitionSpeed: 'default', // default/fast/slow
+				plugins: []
+			});
+		</script>
+	</body>
+</html>
