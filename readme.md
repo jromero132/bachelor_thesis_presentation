@@ -30,4 +30,4 @@ La presentación también puede ejecutarse mediante el uso de [Docker](https://w
 5. Una vez dentro del directorio, ejecutar el comando: \
 `docker-compose up`
 
-Luego de esto, puede ir en su navegador a la _url_ <localhost:8080/presentation/> y podrá ver la presentación.
+Luego de esto, puede ir en su navegador a la _url_ <localhost:8080/presentation.html> y podrá ver la presentación.
