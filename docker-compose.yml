@@ -1,0 +1,7 @@
+version: "3"
+services:
+    presentation:
+        build: .
+        image: presentation:1.0
+        ports:
+            - 8080:80
